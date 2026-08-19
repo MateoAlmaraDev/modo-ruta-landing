@@ -6,6 +6,14 @@
    - cuerpo  → Sofia Pro       (uso actual: Poppins)
    ========================================= */
 
+@font-face {
+  font-family: 'Wonder Nature Spot';
+  src: url('./fuentes/WonderNatureSpot.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Paleta de marca */
   --color-rojo: #AA0003;
@@ -16,11 +24,11 @@
 
   /* Tipografías */
   --fuente-serif: 'Playfair Display', Georgia, serif;
-  --fuente-script: 'Petit Formal Script', cursive;
+  --fuente-script: 'Wonder Nature Spot', 'Petit Formal Script', cursive;
   --fuente-cuerpo: 'Poppins', sans-serif;
 
   /* Espaciado */
-  --contenedor-max: 720px;
+  --contenedor-max: 900px;
   --radio-suave: 18px;
 }
 
@@ -64,7 +72,7 @@ body {
 }
 
 .estrella svg { width: 100%; height: 100%; }
-.estrella path { fill: var(--color-rosa); }
+.estrella polygon { fill: var(--color-rojo); }
 
 .estrella--sup {
   top: 6%;
@@ -101,21 +109,22 @@ body {
 }
 
 .cartel--avion {
-  top: 16%;
+  top: 20%;
   left: 9%;
   color: var(--color-rojo);
   animation: flotar 7s ease-in-out infinite;
 }
 
 .cartel--pin {
-  top: 4%;
-  left: 50%;
+  top: 35%;
+  left: 85%;
   width: 26px;
   height: 26px;
   color: var(--color-marron);
   opacity: 0.4;
   animation: flotar 8.5s ease-in-out infinite 1.2s;
 }
+
 
 .cartel--brujula {
   bottom: 16%;
@@ -146,11 +155,12 @@ body {
 /* ---------- Hero ---------- */
 
 .hero {
-  min-height: 78vh;
+  min-height: 46vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding-top: 40px;
 }
 
 .hero__contenido {
@@ -158,26 +168,10 @@ body {
 }
 
 .logo {
-  font-size: clamp(2.8rem, 9vw, 5rem);
-  line-height: 1;
-  margin-bottom: 28px;
-}
-
-.logo__modo {
   display: block;
-  font-family: var(--fuente-serif);
-  font-weight: 600;
-  color: var(--color-marron);
-  letter-spacing: 0.01em;
-}
-
-.logo__ruta {
-  display: block;
-  font-family: var(--fuente-script);
-  font-weight: 400;
-  color: var(--color-rojo);
-  font-size: 1.5em;
-  margin-top: -0.15em;
+  width: clamp(220px, 42vw, 340px);
+  height: auto;
+  margin: 0 auto 24px;
 }
 
 .badge {
@@ -215,7 +209,7 @@ body {
 
 .caja-viene__wrap {
   max-width: 340px;
-  margin: 0 auto 56px;
+  margin: 0 auto 44px;
   opacity: 0;
   animation: aparecer 0.8s ease-out 0.15s forwards;
 }
@@ -232,7 +226,7 @@ body {
 
 .caja-viene p {
   font-family: var(--fuente-script);
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
 }
 
@@ -303,16 +297,19 @@ body {
 
 .ruta-item__texto h2 {
   font-family: var(--fuente-serif);
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-weight: 700;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   color: var(--color-marron);
   margin-bottom: 6px;
 }
 
 .ruta-item__texto p {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: rgba(68, 34, 22, 0.78);
-  max-width: 46ch;
+  max-width: none;
+  white-space: nowrap;
 }
 
 /* ---------- Contacto ---------- */
@@ -339,12 +336,11 @@ body {
 .contacto__pill {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 14px 26px;
-  border-radius: 999px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -360,7 +356,7 @@ body {
 
 .contacto__pill:hover,
 .contacto__pill:focus-visible {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-3px) scale(1.06);
   box-shadow: 0 10px 22px -10px rgba(68, 34, 22, 0.4);
 }
 
@@ -370,8 +366,8 @@ body {
 }
 
 .contacto__icono {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
 }
 
@@ -396,12 +392,13 @@ body {
 /* Tablets y notebooks chicas */
 @media (max-width: 900px) {
   .pagina { padding: 0 20px; }
-  .hero { min-height: 70vh; }
+  .hero { min-height: 40vh; }
+  .ruta-item__texto p { white-space: normal; max-width: 46ch; }
 }
 
 /* Celulares grandes / tablets en vertical */
 @media (max-width: 640px) {
-  .hero { min-height: 62vh; }
+  .hero { min-height: 34vh; padding-top: 28px; }
 
   .logo { margin-bottom: 22px; }
 
@@ -421,8 +418,7 @@ body {
   .ruta-item__texto h2 { font-size: 1.1rem; }
   .ruta-item__texto p { font-size: 0.9rem; }
 
-  .contacto__botones { flex-direction: column; width: 100%; }
-  .contacto__pill { width: 100%; justify-content: center; }
+  .contacto__botones { gap: 18px; }
 
   .cartel { width: 26px; height: 26px; opacity: 0.4; }
   .cartel--pin { display: none; } /* evita que se cruce con el logo en pantallas angostas */
@@ -439,12 +435,13 @@ body {
   .caja-viene { padding: 16px 20px; }
   .caja-viene p { font-size: 1.4rem; }
 
-  .contacto__pill { font-size: 0.88rem; padding: 13px 20px; }
+  .contacto__pill { width: 48px; height: 48px; }
+  .contacto__icono { width: 20px; height: 20px; }
 }
 
 /* Celulares chicos */
 @media (max-width: 360px) {
-  .logo { font-size: clamp(2.2rem, 11vw, 3rem); }
+  .logo { width: clamp(180px, 55vw, 240px); }
   .badge { letter-spacing: 0.06em; }
 
   .cartel--avion,
