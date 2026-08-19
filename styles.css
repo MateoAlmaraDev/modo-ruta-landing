@@ -1,0 +1,460 @@
+/* =========================================
+   modo ruta — estilos
+   Fuentes de reemplazo (usar las de marca cuando tengas los archivos):
+   - "modo"  → Wonder Nature  (uso actual: Playfair Display)
+   - "ruta"  → Maerison Script (uso actual: Petit Formal Script)
+   - cuerpo  → Sofia Pro       (uso actual: Poppins)
+   ========================================= */
+
+:root {
+  /* Paleta de marca */
+  --color-rojo: #AA0003;
+  --color-rosa: #FDBBC9;
+  --color-crema: #FFF8EF;
+  --color-marron: #442216;
+  --color-amarillo: #FEF3B3;
+
+  /* Tipografías */
+  --fuente-serif: 'Playfair Display', Georgia, serif;
+  --fuente-script: 'Petit Formal Script', cursive;
+  --fuente-cuerpo: 'Poppins', sans-serif;
+
+  /* Espaciado */
+  --contenedor-max: 720px;
+  --radio-suave: 18px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-crema);
+  color: var(--color-marron);
+  font-family: var(--fuente-cuerpo);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Estrellas decorativas ---------- */
+
+.estrella {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  z-index: 0;
+  opacity: 0.9;
+  animation: girar 14s linear infinite;
+}
+
+.estrella svg { width: 100%; height: 100%; }
+.estrella path { fill: var(--color-rosa); }
+
+.estrella--sup {
+  top: 6%;
+  right: 8%;
+}
+
+.estrella--inf {
+  bottom: 10%;
+  left: 6%;
+  width: 50px;
+  height: 50px;
+  animation-duration: 18s;
+  animation-direction: reverse;
+}
+
+@keyframes girar {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Carteles flotantes ---------- */
+
+.cartel {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.cartel svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cartel--avion {
+  top: 16%;
+  left: 9%;
+  color: var(--color-rojo);
+  animation: flotar 7s ease-in-out infinite;
+}
+
+.cartel--pin {
+  top: 4%;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  color: var(--color-marron);
+  opacity: 0.4;
+  animation: flotar 8.5s ease-in-out infinite 1.2s;
+}
+
+.cartel--brujula {
+  bottom: 16%;
+  right: 10%;
+  width: 30px;
+  height: 30px;
+  color: var(--color-rojo);
+  opacity: 0.45;
+  animation: flotar 9.5s ease-in-out infinite 0.6s reverse;
+}
+
+@keyframes flotar {
+  0%   { transform: translateY(0) rotate(-8deg); }
+  50%  { transform: translateY(-14px) rotate(8deg); }
+  100% { transform: translateY(0) rotate(-8deg); }
+}
+
+/* ---------- Layout general ---------- */
+
+.pagina {
+  max-width: var(--contenedor-max);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero__contenido {
+  animation: aparecer 0.9s ease-out both;
+}
+
+.logo {
+  font-size: clamp(2.8rem, 9vw, 5rem);
+  line-height: 1;
+  margin-bottom: 28px;
+}
+
+.logo__modo {
+  display: block;
+  font-family: var(--fuente-serif);
+  font-weight: 600;
+  color: var(--color-marron);
+  letter-spacing: 0.01em;
+}
+
+.logo__ruta {
+  display: block;
+  font-family: var(--fuente-script);
+  font-weight: 400;
+  color: var(--color-rojo);
+  font-size: 1.5em;
+  margin-top: -0.15em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border: 1.5px solid var(--color-rojo);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-rojo);
+  font-weight: 500;
+}
+
+.badge__punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-rojo);
+  animation: pulso 1.6s ease-in-out infinite;
+}
+
+@keyframes pulso {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+/* ---------- Lo que se viene ---------- */
+
+.seccion-viene {
+  padding: 40px 0 60px;
+}
+
+.caja-viene__wrap {
+  max-width: 340px;
+  margin: 0 auto 56px;
+  opacity: 0;
+  animation: aparecer 0.8s ease-out 0.15s forwards;
+}
+
+.caja-viene {
+  background-color: var(--color-rojo);
+  color: var(--color-crema);
+  border-radius: var(--radio-suave);
+  padding: 22px 32px;
+  box-shadow: 0 14px 30px -12px rgba(170, 0, 3, 0.45);
+  transform-origin: top center;
+  animation: colgar 4.5s ease-in-out infinite 1s;
+}
+
+.caja-viene p {
+  font-family: var(--fuente-script);
+  font-size: 2rem;
+  text-align: center;
+}
+
+@keyframes colgar {
+  0%, 100% { transform: rotate(-3deg) translateY(0); }
+  50%      { transform: rotate(3deg) translateY(-4px); }
+}
+
+.ruta-lista {
+  list-style: none;
+  position: relative;
+  padding-left: 34px;
+}
+
+.ruta-lista::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background-image: linear-gradient(var(--color-rosa) 60%, transparent 40%);
+  background-size: 2px 14px;
+  background-repeat: repeat-y;
+}
+
+.ruta-item {
+  position: relative;
+  padding-bottom: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: aparecer 0.7s ease-out forwards;
+  transition: transform 0.25s ease;
+}
+
+.ruta-item:hover {
+  transform: translateX(6px);
+}
+
+.ruta-item:hover .ruta-item__marca {
+  transform: scale(1.25);
+  transition: transform 0.25s ease;
+}
+
+.ruta-item:hover .ruta-item__texto h2 {
+  color: var(--color-rojo);
+  transition: color 0.25s ease;
+}
+
+.ruta-item:nth-child(1) { animation-delay: 0.05s; }
+.ruta-item:nth-child(2) { animation-delay: 0.15s; }
+.ruta-item:nth-child(3) { animation-delay: 0.25s; }
+.ruta-item:nth-child(4) { animation-delay: 0.35s; }
+
+.ruta-item:last-child { padding-bottom: 0; }
+
+.ruta-item__marca {
+  position: absolute;
+  left: -34px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-rojo);
+  border: 3px solid var(--color-crema);
+  box-shadow: 0 0 0 2px var(--color-rojo);
+}
+
+.ruta-item__texto h2 {
+  font-family: var(--fuente-serif);
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--color-marron);
+  margin-bottom: 6px;
+}
+
+.ruta-item__texto p {
+  font-size: 0.95rem;
+  color: rgba(68, 34, 22, 0.78);
+  max-width: 46ch;
+}
+
+/* ---------- Contacto ---------- */
+
+.contacto {
+  text-align: center;
+  padding: 30px 0 70px;
+}
+
+.contacto__previa {
+  font-size: 0.95rem;
+  color: rgba(68, 34, 22, 0.75);
+  margin-bottom: 18px;
+}
+
+.contacto__botones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.contacto__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 14px 26px;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contacto__pill--mail {
+  background-color: var(--color-amarillo);
+  color: var(--color-marron);
+}
+
+.contacto__pill--insta {
+  background-color: var(--color-rojo);
+  color: var(--color-crema);
+}
+
+.contacto__pill:hover,
+.contacto__pill:focus-visible {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 22px -10px rgba(68, 34, 22, 0.4);
+}
+
+.contacto__pill:focus-visible {
+  outline: 2px solid var(--color-rojo);
+  outline-offset: 3px;
+}
+
+.contacto__icono {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  text-align: center;
+  padding: 24px 0 40px;
+  font-size: 0.8rem;
+  color: rgba(68, 34, 22, 0.55);
+}
+
+/* ---------- Animaciones ---------- */
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+
+/* Tablets y notebooks chicas */
+@media (max-width: 900px) {
+  .pagina { padding: 0 20px; }
+  .hero { min-height: 70vh; }
+}
+
+/* Celulares grandes / tablets en vertical */
+@media (max-width: 640px) {
+  .hero { min-height: 62vh; }
+
+  .logo { margin-bottom: 22px; }
+
+  .badge {
+    font-size: 0.72rem;
+    padding: 9px 16px;
+    text-align: center;
+  }
+
+  .caja-viene__wrap { max-width: 280px; margin-bottom: 46px; }
+  .caja-viene { padding: 18px 26px; }
+  .caja-viene p { font-size: 1.65rem; }
+
+  .ruta-lista { padding-left: 26px; }
+  .ruta-item { padding-bottom: 32px; }
+  .ruta-item__marca { left: -26px; }
+  .ruta-item__texto h2 { font-size: 1.1rem; }
+  .ruta-item__texto p { font-size: 0.9rem; }
+
+  .contacto__botones { flex-direction: column; width: 100%; }
+  .contacto__pill { width: 100%; justify-content: center; }
+
+  .cartel { width: 26px; height: 26px; opacity: 0.4; }
+  .cartel--pin { display: none; } /* evita que se cruce con el logo en pantallas angostas */
+}
+
+/* Celulares estándar */
+@media (max-width: 480px) {
+  .estrella--sup { width: 46px; height: 46px; top: 4%; right: 6%; }
+  .estrella--inf { width: 34px; height: 34px; }
+
+  .seccion-viene { padding: 30px 0 50px; }
+
+  .caja-viene__wrap { max-width: 240px; }
+  .caja-viene { padding: 16px 20px; }
+  .caja-viene p { font-size: 1.4rem; }
+
+  .contacto__pill { font-size: 0.88rem; padding: 13px 20px; }
+}
+
+/* Celulares chicos */
+@media (max-width: 360px) {
+  .logo { font-size: clamp(2.2rem, 11vw, 3rem); }
+  .badge { letter-spacing: 0.06em; }
+
+  .cartel--avion,
+  .cartel--brujula { opacity: 0.25; }
+
+  .ruta-lista { padding-left: 22px; }
+  .ruta-item__marca { left: -22px; width: 10px; height: 10px; }
+}
+
+/* Pantallas bajas / celular en horizontal */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero { min-height: 100vh; padding: 24px 0; }
+}
