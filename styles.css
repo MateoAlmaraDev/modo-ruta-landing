@@ -1,10 +1,14 @@
 /* =========================================
    modo ruta — estilos
-   Fuentes de reemplazo (usar las de marca cuando tengas los archivos):
-   - "modo"  → Wonder Nature  (uso actual: Playfair Display)
-   - "ruta"  → Maerison Script (uso actual: Petit Formal Script)
-   - cuerpo  → Sofia Pro       (uso actual: Poppins)
    ========================================= */
+
+@font-face {
+  font-family: 'Wonder Nature Spot';
+  src: url('fuentes/WonderNatureSpot.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Paleta de marca */
@@ -16,6 +20,7 @@
 
   /* Tipografías */
   --fuente-serif: 'Playfair Display', Georgia, serif;
+  --fuente-cartel: 'Wonder Nature Spot', 'Playfair Display', Georgia, serif;
   --fuente-script: 'Petit Formal Script', cursive;
   --fuente-cuerpo: 'Poppins', sans-serif;
 
@@ -101,15 +106,15 @@ body {
 }
 
 .cartel--avion {
-  top: 16%;
+  top: 22%;
   left: 9%;
   color: var(--color-rojo);
   animation: flotar 7s ease-in-out infinite;
 }
 
 .cartel--pin {
-  top: 4%;
-  left: 50%;
+  top: 35%;
+  left: 85%;
   width: 26px;
   height: 26px;
   color: var(--color-marron);
@@ -146,12 +151,12 @@ body {
 /* ---------- Hero ---------- */
 
 .hero {
-  min-height: 46vh;
+  min-height: 52vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
 .hero__contenido {
@@ -195,7 +200,7 @@ body {
 /* ---------- Lo que se viene ---------- */
 
 .seccion-viene {
-  padding: 8px 0 60px;
+  padding: 30px 0 60px;
 }
 
 .caja-viene__wrap {
@@ -216,8 +221,10 @@ body {
 }
 
 .caja-viene p {
-  font-family: var(--fuente-script);
-  font-size: 2rem;
+  font-family: var(--fuente-cartel);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 3rem;
   text-align: center;
 }
 
