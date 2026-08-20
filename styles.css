@@ -389,10 +389,10 @@ body {
 
 /* Celulares grandes / tablets en vertical */
 @media (max-width: 640px) {
-  .hero { min-height: 22vh; padding-top: 24px; }
+  .hero { min-height: 22vh; padding-top: 24px; padding-bottom: 12px; }
 
-  .seccion-viene { padding-top: 0; }
-  .caja-viene__wrap { margin-top: -10px; }
+  .seccion-viene { padding-top: 14px; }
+  .caja-viene__wrap { margin-top: 0; }
 
   .logo { margin-bottom: 22px; }
 
@@ -423,7 +423,7 @@ body {
   .estrella--sup { width: 46px; height: 46px; top: 4%; right: 6%; }
   .estrella--inf { width: 34px; height: 34px; }
 
-  .seccion-viene { padding: 0 0 50px; }
+  .seccion-viene { padding: 10px 0 50px; }
 
   .caja-viene__wrap { max-width: 240px; }
   .caja-viene { padding: 16px 20px; }
