@@ -109,7 +109,7 @@ body {
 }
 
 .cartel--avion {
-  top: 20%;
+  top: 25%;
   left: 9%;
   color: var(--color-rojo);
   animation: flotar 7s ease-in-out infinite;
