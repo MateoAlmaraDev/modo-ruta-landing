@@ -223,7 +223,7 @@ body {
 .caja-viene p {
   font-family: var(--fuente-cartel);
   font-style: italic;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 3rem;
   text-align: center;
 }
@@ -434,7 +434,7 @@ body {
 
   .caja-viene__wrap { max-width: 240px; }
   .caja-viene { padding: 16px 20px; }
-  .caja-viene p { font-size: 1.4rem; }
+  .caja-viene p { font-size: 3rem; }
 
   .contacto__pill { width: 48px; height: 48px; }
   .contacto__icono { width: 20px; height: 20px; }
